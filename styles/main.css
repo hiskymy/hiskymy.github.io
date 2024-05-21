@@ -10059,3 +10059,19 @@ body {
     left: 0;
     margin: 0px 15px 15px 15px;
 }
+
+.countdown-container {
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+
+}
+
+#countdown {
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+#countdown span {
+    margin: 0 5px;
+}

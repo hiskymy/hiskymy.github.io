@@ -77,3 +77,32 @@ $("a.smooth-scroll").click(function (event) {
         }
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const targetDate = new Date("2024-06-08T12:00:00"); // D-Day 날짜 설정
+    const daysElement = document.getElementById("days");
+    const hoursElement = document.getElementById("hours");
+    const minutesElement = document.getElementById("minutes");
+    const secondsElement = document.getElementById("seconds");
+
+    function updateCountdown() {
+        const currentDate = new Date();
+        const totalSeconds = (targetDate - currentDate) / 1000;
+
+        const days = Math.floor(totalSeconds / 3600 / 24);
+        const hours = Math.floor(totalSeconds / 3600) % 24;
+        const minutes = Math.floor(totalSeconds / 60) % 60;
+        const seconds = Math.floor(totalSeconds) % 60;
+
+        daysElement.textContent = days;
+        hoursElement.textContent = hours < 10 ? `0${hours}` : hours;
+        minutesElement.textContent = minutes < 10 ? `0${minutes}` : minutes;
+        secondsElement.textContent = seconds < 10 ? `0${seconds}` : seconds;
+    }
+
+    // 초기 카운트다운 업데이트
+    updateCountdown();
+
+    // 1초마다 카운트다운 업데이트
+    setInterval(updateCountdown, 1000);
+});
